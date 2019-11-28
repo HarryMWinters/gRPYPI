@@ -9,6 +9,7 @@ tasks:
   start:
     cmds:
       - docker-compose --file pypi-server/Docker-compose.yaml up
+
   bootstrap:
     cmds:
       - brew install pipenv

@@ -1,0 +1,14 @@
+service TurkeyService {
+    rpc GetTurkeyStatus(TurkeyRequest) returns (TurkeyResponse) {}
+ }
+
+ message TurkeyRequest {
+    required string name = 1;
+    required int32 id = 2;
+  }
+
+message TurkeyResponse{
+    required string name = 1;
+    required int32 id = 2;
+    required bool is_pardoned = 3;
+}
