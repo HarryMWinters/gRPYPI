@@ -1,14 +1,24 @@
+syntax = "proto3";
+
+
+// Interface made availabe by the Turkey Department of Justice server.
 service TurkeyService {
-    rpc GetTurkeyStatus(TurkeyRequest) returns (TurkeyResponse) {}
- }
+  // A a simple request-response RPC for checking the Turkey TTL.
+  //
+  // Accepts a TurkeyRequest and returns a TurkeyResponse.
+  rpc GetTurkeyStatus(TurkeyRequest) returns (TurkeyResponse) {}
+}
 
- message TurkeyRequest {
-    required string name = 1;
-    required int32 id = 2;
-  }
+//  TurkeyRequests identify a turkey by its name and id number.
+message TurkeyRequest {
+  string name = 1;
+  int32 id = 2;
+}
 
-message TurkeyResponse{
-    required string name = 1;
-    required int32 id = 2;
-    required bool is_pardoned = 3;
+// TurkeyResponses return the identified turkey's name and id as well as 
+// whether it has been pardoned.
+message TurkeyResponse {
+  string name = 1;
+  int32 id = 2;
+  bool is_pardoned = 3;
 }

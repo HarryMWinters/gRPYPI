@@ -1,6 +1,10 @@
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python
 
+# gRPC and protobuf compilation artifacts
+*pb2.py
+*pb2_grpc.py
+
 # VS Code
 .vscode/
 

@@ -17,6 +17,16 @@ tasks:
       - pre-commit install
       - pipenv install --dev
 
+  compile_proto:
+    cmds:
+      - pipenv run python -m grpc_tools.protoc
+        -IgRPC/protos/
+        --python_out=gRPC/protolib/protolib
+        --grpc_python_out=gRPC/protolib/protolib
+        myprotos.proto
+
+  # $ python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/route_guide.proto
+
   test:
     cmds:
       - echo "No tests."
