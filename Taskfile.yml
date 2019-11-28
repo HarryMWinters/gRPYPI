@@ -25,9 +25,19 @@ tasks:
         --grpc_python_out=gRPC/protolib/protolib
         myprotos.proto
 
-  # $ python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/route_guide.proto
+  build_package:
+    cmds:
+      - pipenv run python gRPC/protolib/setup.py sdist bdist_wheel
+      - pipenv run twine check dist/*
+
+  publish_package:
+    cmds:
+      - pipenv run twine upload --repository-url https://localhost:8080 dist/*
 
   test:
     cmds:
       - echo "No tests."
     silent: true
+# Worth Looking Into
+# pip install bumpversion
+# bumpversion --current-version 1.0.0 minor setup.py reader/__init__.py

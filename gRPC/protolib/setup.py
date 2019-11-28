@@ -1,6 +1,11 @@
+import os
+
 import setuptools
 
-with open("README.md", "r") as fh:
+REQUIRED = ["google"]
+
+cwd = os.getcwd()
+with open(os.path.join(cwd, "README.md"), "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
@@ -19,4 +24,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
+    install_requires=REQUIRED,
 )

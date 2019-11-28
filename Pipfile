@@ -8,6 +8,8 @@ pylint = "*"
 black = "*"
 
 [packages]
+grpcio-tools = "*"
+twine = "*"
 
 [requires]
 python_version = "3.7"
